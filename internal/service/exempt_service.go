@@ -5,6 +5,7 @@ import (
 
 	"go.uber.org/zap"
 
+	"github.com/lacnoi/debt-go-exempt/internal/domain/exempt"
 	"github.com/lacnoi/debt-go-exempt/internal/repo"
 )
 
@@ -26,6 +27,6 @@ func (s *ExemptService) Create(ctx context.Context, employeeID, reason string) (
 	return id, nil
 }
 
-func (s *ExemptService) GetByID(ctx context.Context, id string) (map[string]any, error) {
-	return s.repo.GetByID(ctx, id)
+func (s *ExemptService) GetByBaNo(ctx context.Context, baNo string) ([]exempt.Exempt, error) {
+	return s.repo.GetByBaNo(ctx, baNo)
 }
